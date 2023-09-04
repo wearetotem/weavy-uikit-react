@@ -23,7 +23,7 @@ import ConversationBadge from './ConversationBadge';
 import Presence from './Presence';
 import useFeatures from '../hooks/useFeatures';
 
-const Conversation = ({ id, showBackButton, features }: ConversationProps) => {
+const Conversation = ({ id, showBackButton, features, hideParticipants, hideAvatarHeader }: ConversationProps) => {
 
     const queryClient = useQueryClient();
     const { client } = useContext(WeavyContext);
@@ -146,7 +146,7 @@ const Conversation = ({ id, showBackButton, features }: ConversationProps) => {
 
     return (
         <>
-            <header className="wy-appbars" data-adjust-scrollbar-top>
+            {!hideParticipants && <header className="wy-appbars" data-adjust-scrollbar-top>
                 <nav className="wy-appbar">
                     <div>
                         {showBackButton &&
@@ -192,9 +192,9 @@ const Conversation = ({ id, showBackButton, features }: ConversationProps) => {
                         </>
                     }
                 </nav>
-            </header>
+            </header>}
 
-            {!selectedConversationId &&
+            {!hideAvatarHeader && !selectedConversationId &&
                 <div className="wy-avatar-header">
                     <Avatar src={user.avatar_url} name={user.display_name} presence={user.presence} id={user.id} size={256} />
                     <h2 className='wy-title'>Welcome {user.name}!</h2>

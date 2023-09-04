@@ -14,6 +14,7 @@ import Button from './ui/Button';
 import Dropdown from './ui/Dropdown';
 import Icon from './ui/Icon';
 import Overlay from './ui/Overlay';
+import useConversation from './hooks/useConversation';
 
 export {
     WeavyClient,
@@ -31,5 +32,6 @@ export {
     Button,
     Dropdown,
     Icon,
-    Overlay
+    Overlay,
+    useConversation
 }

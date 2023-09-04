@@ -1,3 +1,12 @@
+## [17.3.2](https://github.com/wearetotem/weavy-uikit-react/compare/v17.3.1...v17.3.2) (2023-09-04)
+
+
+### Bug Fixes
+
+* hide avatar header from messages ([54b0b59](https://github.com/wearetotem/weavy-uikit-react/commit/54b0b59a414010fe2b5247f60aa55c1939aaa473))
+
+
+
 ## [17.3.1](https://github.com/wearetotem/weavy-uikit-react/compare/v17.3.0...v17.3.1) (2023-09-04)
 
 
@@ -21,10 +30,6 @@
 
 
 # [17.2.0](https://github.com/wearetotem/weavy-uikit-react/compare/v17.1.0...v17.2.0) (2023-08-18)
-
-
-
-# [17.1.0](https://github.com/wearetotem/weavy-uikit-react/compare/v17.0.4...v17.1.0) (2023-06-22)
 
 
 

@@ -228,7 +228,7 @@ const Conversation = ({ id, showBackButton, features, hideParticipants, hideAvat
                     </nav>
                 </header>
                 <div className='wy-scroll-y'>
-                    {dataConversation && <div className="wy-avatar-header">
+                    {!hideAvatarHeader && dataConversation && <div className="wy-avatar-header">
                         <Avatar src={dataConversation?.avatar_url} name={title} size={128} />
                         {dataConversation?.type !== ChatRoom &&
                             <h3 className="wy-headline">{dataConversation?.display_name}</h3>

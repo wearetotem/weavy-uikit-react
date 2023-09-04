@@ -203,7 +203,7 @@ const Conversation = ({ id, showBackButton, features, hideParticipants, hideAvat
             }
             {selectedConversationId && dataMembers && dataConversation && dataFeatures &&
                 <div className="wy-pane-body">
-                    <Messages id={selectedConversationId} chatRoom={isRoomOrChat} members={dataMembers} displayName={dataConversation?.display_name} avatarUrl={dataConversation?.avatar_url} lastMessageId={dataConversation?.last_message?.id} features={dataFeatures} appFeatures={features}/>
+                    <Messages id={selectedConversationId} chatRoom={isRoomOrChat} members={dataMembers} displayName={dataConversation?.display_name} avatarUrl={dataConversation?.avatar_url} lastMessageId={dataConversation?.last_message?.id} features={dataFeatures} appFeatures={features} hideAvatarHeader={hideAvatarHeader}/>
                 </div>
             }
 

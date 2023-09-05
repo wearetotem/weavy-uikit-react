@@ -6,5 +6,6 @@ export interface ConversationProps {
   showBackButton?: boolean,
   features?: AppFeatures | undefined,
   header?: boolean;
-  hideAvatarHeader?: boolean;
+  avatarHeader?: boolean;
+  details?: boolean;
 }

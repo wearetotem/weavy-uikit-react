@@ -26,10 +26,10 @@ type Props = {
     chatRoom: boolean,
     features: string[],
     appFeatures: AppFeatures | undefined
-    hideAvatarHeader?: boolean;
+    avatarHeader?: boolean;
 }
 
-const Messages = ({ id, members, displayName, avatarUrl, lastMessageId, chatRoom, features, appFeatures, hideAvatarHeader }: Props) => {
+const Messages = ({ id, members, displayName, avatarUrl, lastMessageId, chatRoom, features, appFeatures, avatarHeader }: Props) => {
     const [, onNextRender] = useState<any>();
 
     const { user } = useContext(UserContext);
@@ -187,7 +187,7 @@ const Messages = ({ id, members, displayName, avatarUrl, lastMessageId, chatRoom
 
     }, [id]);
 
-    let messageHeader = !hideAvatarHeader && <div className="wy-avatar-header">
+    let messageHeader = avatarHeader !== false && <div className="wy-avatar-header">
         {avatarUrl && displayName && <Avatar src={avatarUrl} name={displayName} id={id} size={128} /> || ''}
         {displayName && <div className="wy-headline">{displayName}</div> || ''}
     </div>;

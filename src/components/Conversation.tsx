@@ -23,7 +23,7 @@ import ConversationBadge from './ConversationBadge';
 import Presence from './Presence';
 import useFeatures from '../hooks/useFeatures';
 
-const Conversation = ({ id, showBackButton, features, header, hideAvatarHeader }: ConversationProps) => {
+const Conversation = ({ id, showBackButton, features, header, avatarHeader, details }: ConversationProps) => {
 
     const queryClient = useQueryClient();
     const { client } = useContext(WeavyContext);
@@ -168,12 +168,12 @@ const Conversation = ({ id, showBackButton, features, header, hideAvatarHeader }
                                     </div>
                                 </Typing>
                             </div>
-                            <Dropdown.UI directionX='left'>
+                            {(details !== false || dataConversation.type === ChatRoom) && (<Dropdown.UI directionX='left'>
 
-                                <Dropdown.Item onClick={() => toggleDetailsModal(true)}>
+                                {details !== false && <Dropdown.Item onClick={() => toggleDetailsModal(true)}>
                                     <Icon.UI name="information" />
                                     Details
-                                </Dropdown.Item>
+                                </Dropdown.Item>}
 
                                 {dataConversation.type === ChatRoom &&
                                     <>
@@ -188,13 +188,13 @@ const Conversation = ({ id, showBackButton, features, header, hideAvatarHeader }
                                     </>
                                 }
 
-                            </Dropdown.UI>
+                            </Dropdown.UI>)}
                         </>
                     }
                 </nav>
             </header>}
 
-            {!hideAvatarHeader && !selectedConversationId &&
+            {avatarHeader !== false && !selectedConversationId &&
                 <div className="wy-avatar-header">
                     <Avatar src={user.avatar_url} name={user.display_name} presence={user.presence} id={user.id} size={256} />
                     <h2 className='wy-title'>Welcome {user.name}!</h2>
@@ -203,7 +203,7 @@ const Conversation = ({ id, showBackButton, features, header, hideAvatarHeader }
             }
             {selectedConversationId && dataMembers && dataConversation && dataFeatures &&
                 <div className="wy-pane-body">
-                    <Messages id={selectedConversationId} chatRoom={isRoomOrChat} members={dataMembers} displayName={dataConversation?.display_name} avatarUrl={dataConversation?.avatar_url} lastMessageId={dataConversation?.last_message?.id} features={dataFeatures} appFeatures={features} hideAvatarHeader={hideAvatarHeader}/>
+                    <Messages id={selectedConversationId} chatRoom={isRoomOrChat} members={dataMembers} displayName={dataConversation?.display_name} avatarUrl={dataConversation?.avatar_url} lastMessageId={dataConversation?.last_message?.id} features={dataFeatures} appFeatures={features} avatarHeader={avatarHeader}/>
                 </div>
             }
 
@@ -228,7 +228,7 @@ const Conversation = ({ id, showBackButton, features, header, hideAvatarHeader }
                     </nav>
                 </header>
                 <div className='wy-scroll-y'>
-                    {!hideAvatarHeader && dataConversation && <div className="wy-avatar-header">
+                    {avatarHeader !== false && dataConversation && <div className="wy-avatar-header">
                         <Avatar src={dataConversation?.avatar_url} name={title} size={128} />
                         {dataConversation?.type !== ChatRoom &&
                             <h3 className="wy-headline">{dataConversation?.display_name}</h3>

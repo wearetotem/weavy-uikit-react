@@ -12,7 +12,7 @@ import { ConversationType } from '../types/types';
 import {ConversationListProps} from "../types/ConversationList";
 import classNames from "classnames";
 
-const ConversationList = ({ avatar, title }: ConversationListProps) => {
+const ConversationList = ({ avatar, title, headerRight }: ConversationListProps) => {
     const { client } = useContext(WeavyContext);
     const { user } = useContext(UserContext);
 
@@ -50,7 +50,7 @@ const ConversationList = ({ avatar, title }: ConversationListProps) => {
                 <nav className={classNames("wy-appbar", avatar !== false && "title-left")}>
                     {avatar !== false && <Avatar src={user.avatar_url} name={user.display_name} presence={user.presence} id={user.id} size={24} />}
                     <div>{title || "Messenger"}</div>
-                    <NewConversation />
+                    <div><NewConversation />{headerRight}</div>
                 </nav>
             </header>
             <div className="wy-conversations">

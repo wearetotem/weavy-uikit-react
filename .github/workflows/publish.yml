@@ -19,8 +19,8 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           
-      - run: npm ci
-      - run: npm run build
+      - run: pnpm i
+      - run: pnpm run build
       - run: npm publish --access public
         if: github.ref_name == 'main'
         env:

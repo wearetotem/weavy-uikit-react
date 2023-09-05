@@ -38,7 +38,7 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
           
-      - run: pnpm i
+      - run: pnpm install --no-frozen-lockfile
       - run: pnpm run build
       - run: npm publish --access public
         if: github.ref_name == 'main'

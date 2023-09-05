@@ -9,8 +9,10 @@ import Button from '../ui/Button';
 import Spinner from '../ui/Spinner';
 import useInfinteScroll from '../hooks/useInfiniteScroll';
 import { ConversationType } from '../types/types';
+import {ConversationListProps} from "../types/ConversationList";
+import classNames from "classnames";
 
-const ConversationList = () => {
+const ConversationList = ({ avatar, title }: ConversationListProps) => {
     const { client } = useContext(WeavyContext);
     const { user } = useContext(UserContext);
 
@@ -45,9 +47,9 @@ const ConversationList = () => {
     return (
         <>
             <header className="wy-appbars" data-adjust-scrollbar-top>
-                <nav className="wy-appbar">
-                    <Avatar src={user.avatar_url} name={user.display_name} presence={user.presence} id={user.id} size={24} />
-                    <div>Messenger</div>
+                <nav className={classNames("wy-appbar", avatar !== false && "title-left")}>
+                    {avatar !== false && <Avatar src={user.avatar_url} name={user.display_name} presence={user.presence} id={user.id} size={24} />}
+                    <div>{title || "Messenger"}</div>
                     <NewConversation />
                 </nav>
             </header>

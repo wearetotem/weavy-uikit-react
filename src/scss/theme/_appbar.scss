@@ -34,15 +34,20 @@
   justify-content: space-between;
   justify-items: center;
   height: vars.$appbar-height;
-  padding: .25rem;
+  padding: .5rem;
   flex: 0 0 vars.$appbar-height;
   grid-template-columns: minmax(2.5rem, max-content) minmax(0, max-content) minmax(2.5rem, max-content);
   column-gap: .5rem;
   line-height: vars.$line-height-base;
-
   background-color: var(--wy-component-background-color);
   color: var(--wy-component-color);
   box-shadow: #{colors.$outline-variant} 0px -1px 0px 0px inset;
+
+
+  &.title-left {
+    grid-template-columns: minmax(0, max-content) minmax(2.5rem, max-content);
+    padding-left: 1.1rem;
+  }
 
   .wy-badge {
     align-self: center;

@@ -1,9 +1,10 @@
 import { AppFeatures } from "./types";
+import React from "react";
 
 export interface ConversationProps {
   id?: number | null,  
   showBackButton?: boolean,
   features?: AppFeatures | undefined,
-  hideParticipants?: boolean;
+  header?: boolean;
   hideAvatarHeader?: boolean;
 }
